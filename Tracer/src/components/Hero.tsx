@@ -29,7 +29,7 @@ export const Hero: React.FC = () => {
         >
             <img 
               src={Banner}
-              alt="Premium Shoes Background" 
+              alt="Shoes Background" 
               className="w-full h-full object-cover object-center max-h-screen"
             />
         </motion.div>
@@ -48,7 +48,7 @@ export const Hero: React.FC = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            Premium Footwear
+            #OwnYourGame
           </motion.div>
           
           <motion.h1 
