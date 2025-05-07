@@ -1,18 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CountdownTimer } from './CountdownTimer';
+import Banner from '../assets/Tracer-Banner.png';
 
 export const Hero: React.FC = () => {
   // Launch date: 30 days from now
   const launchDate = new Date();
-  launchDate.setDate(launchDate.getDate() + 30);
+  launchDate.setDate(launchDate.getDate() + 9);
 
   return (
     <section 
       id="hero" 
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-primary-900/60 z-10" />
         <motion.div 
@@ -27,11 +27,11 @@ export const Hero: React.FC = () => {
             y: { repeat: Infinity, duration: 6, ease: "easeInOut" }
           }}
         >
-          <img 
-            src="https://images.pexels.com/photos/1456705/pexels-photo-1456705.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-            alt="Premium Shoes Background" 
-            className="w-full h-full object-cover"
-          />
+            <img 
+              src={Banner}
+              alt="Premium Shoes Background" 
+              className="w-full h-full object-cover object-center max-h-screen"
+            />
         </motion.div>
       </div>
       
@@ -52,12 +52,12 @@ export const Hero: React.FC = () => {
           </motion.div>
           
           <motion.h1 
-            className="heading-xl text-white mb-4 drop-shadow-lg"
+            className="heading-xl text-white mb-4 drop-shadow-lg font-poppins"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <span className="block">Coming Soon</span>
+            <span className="block">Stay Ahead. Save Big.</span>
           </motion.h1>
           
           <motion.p 
@@ -66,8 +66,12 @@ export const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Redefining the future of footwear with premium designs and unmatched comfort.
+            Be first inline when tracer lands on May 15th and score 20% off.
+            <span className="block mt-2 text-accent-400 text-base">
+              Offer valid from 7 days of launch. Join the early access squad.
+            </span>
           </motion.p>
+
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -87,7 +91,7 @@ export const Hero: React.FC = () => {
               href="#subscription" 
               className="btn btn-accent"
             >
-              Get Notified
+              Join Waitlist
             </a>
           </motion.div>
         </motion.div>

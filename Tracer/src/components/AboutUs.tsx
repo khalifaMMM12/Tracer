@@ -5,22 +5,22 @@ import * as icons from 'lucide-react';
 export const AboutUs: React.FC = () => {
   const features = [
     {
-      icon: <icons.Footprints size={24} className="text-primary-600" />,
+      icon: <icons.Footprints size={24} className="text-accent-500" />,
       title: 'Premium Quality',
       description: 'Crafted with the finest materials for maximum comfort and durability.',
     },
     {
-      icon: <icons.Clock size={24} className="text-primary-600" />,
+      icon: <icons.Clock size={24} className="text-accent-500" />,
       title: 'Timeless Design',
       description: 'Classic aesthetics that never go out of style, for any occasion.',
     },
+    // {
+    //   icon: <icons.Award size={24} className="text-primary-600" />,
+    //   title: 'Award Winning',
+    //   description: 'Recognized globally for our innovative approach to footwear design.',
+    // },
     {
-      icon: <icons.Award size={24} className="text-primary-600" />,
-      title: 'Award Winning',
-      description: 'Recognized globally for our innovative approach to footwear design.',
-    },
-    {
-      icon: <icons.Heart size={24} className="text-primary-600" />,
+      icon: <icons.Heart size={24} className="text-accent-500" />,
       title: 'Customer First',
       description: 'Dedicated to providing exceptional service and satisfaction.',
     },
@@ -38,13 +38,14 @@ export const AboutUs: React.FC = () => {
         >
           <h2 className="heading-lg text-gray-900 mb-4">About Tracer</h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            Founded with a passion for premium footwear, Tracer combines cutting-edge technology 
-            with timeless design to create shoes that stand out. Our vision is to redefine 
-            the future of footwear with comfort, style, and sustainability at our core.
+          Tracer is more than a brand, it's a movement. <span className="font-bold">#OwnYourGame. </span>
+          Built for the bold, the stylish, and the unapologetically authentic, 
+          Tracer represents a new wave of youth culture where drip meets drive. Our apparel is designed to capture the energy of the streets, the
+          spirit of sport, and the pulse of tomorrow.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
