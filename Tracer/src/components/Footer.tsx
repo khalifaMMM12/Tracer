@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 // import * as icons from 'lucide-react';
-import { Mail, MapPin, Instagram } from 'lucide-react';
+import { Mail, Phone, Instagram } from 'lucide-react';
 import TracerLogo from '../assets/Tracer-Logo.png';
 
 
@@ -21,16 +21,16 @@ export const Footer: React.FC = () => {
       text: 'support@tracernigeria.com',
       href: 'mailto:support@tracernigeria.com'
     },
-    // { 
-    //   icon: <Phone className="text-accent-500" size={20} />, 
-    //   text: '+1 (888) 555-SHOE',
-    //   href: 'tel:+18885557463'
-    // },
     { 
-      icon: <MapPin className="text-accent-500" size={20} />, 
-      text: '259 Rose street, Map Global Estate, FCT-Abuja',
-      href: '#'
+      icon: <Phone className="text-accent-500" size={20} />, 
+      text: '+234 806 333 3838',
+      href: 'tel:+2348063333838'
     },
+    // { 
+    //   icon: <MapPin className="text-accent-500" size={20} />, 
+    //   text: '259 Rose street, Map Global Estate, FCT-Abuja',
+    //   href: '#'
+    // },
   ];
 
   // const footerLinks = [
