@@ -2,9 +2,9 @@ import React from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { AboutUs } from './components/AboutUs';
-import { ProductShowcase } from './components/ProductShowcase';
+// import { ProductShowcase } from './components/ProductShowcase';
 import { Subscription } from './components/Subscription';
-import { Stats } from './components/Stats';
+// import { Stats } from './components/Stats';
 import { Footer } from './components/Footer';
 
 function App() {
@@ -14,8 +14,8 @@ function App() {
       <main>
         <Hero />
         <AboutUs />
-        <ProductShowcase />
-        <Stats />
+        {/* <ProductShowcase /> */}
+        {/* <Stats /> */}
         <Subscription />
       </main>
       <Footer />

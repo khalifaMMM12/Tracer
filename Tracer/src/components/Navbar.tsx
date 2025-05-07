@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import * as icons from 'lucide-react';
+// import * as icons from 'lucide-react';
+import TracerLogo from '../assets/Tracer-Logo.png';
+
+
 
 export const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -21,14 +24,14 @@ export const Navbar: React.FC = () => {
     };
   }, []);
 
-  const navLinks = [
-    { name: 'Home', href: '#hero' },
-    { name: 'About', href: '#about' },
-    { name: 'Products', href: '#products' },
-    { name: 'Contact', href: '#contact' },
-  ];
+  // const navLinks = [
+  //   { name: 'Home', href: '#hero' },
+  //   { name: 'About', href: '#about' },
+  //   { name: 'Products', href: '#products' },
+  //   { name: 'Contact', href: '#contact' },
+  // ];
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  // const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
     <motion.nav 
@@ -41,14 +44,18 @@ export const Navbar: React.FC = () => {
     >
       <div className="container-custom flex justify-between items-center">
         <a href="#" className="flex items-center gap-2">
-          <icons.Footprints className={`h-8 w-8 ${scrolled ? 'text-primary-600' : 'text-white'}`} />
-          <span className={`text-xl font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>
+          <img 
+            src={TracerLogo} 
+            alt="Tracer Logo" 
+            className={`h-8 w-8 ${scrolled ? 'brightness-100' : 'brightness-0 invert'}`}
+          />          
+          {/* <span className={`text-xl font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>
             TRACER
-          </span>
+          </span> */}
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-8">
+        {/* <div className="hidden md:flex space-x-8">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -60,10 +67,10 @@ export const Navbar: React.FC = () => {
               {link.name}
             </a>
           ))}
-        </div>
+        </div> */}
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
+        {/* <div className="md:hidden">
           <button
             onClick={toggleMenu}
             aria-label="Toggle Menu"
@@ -73,11 +80,11 @@ export const Navbar: React.FC = () => {
           >
             {isOpen ? <icons.X size={24} /> : <icons.Menu size={24} />}
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* Mobile Navigation */}
-      {isOpen && (
+      {/* {isOpen && (
         <motion.div
           className="md:hidden bg-white shadow-xl absolute top-full left-0 right-0"
           initial={{ opacity: 0, height: 0 }}
@@ -98,7 +105,7 @@ export const Navbar: React.FC = () => {
             ))}
           </div>
         </motion.div>
-      )}
+      )} */}
     </motion.nav>
   );
 };

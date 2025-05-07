@@ -30,50 +30,50 @@ export const Footer: React.FC = () => {
     },
   ];
 
-  const footerLinks = [
-    {
-      title: 'Shop',
-      links: [
-        { name: 'Casual Shoes', href: '#' },
-        { name: 'Trainers', href: '#' },
-        { name: 'Limited Editions', href: '#' },
-        { name: 'Sale', href: '#' },
-      ]
-    },
-    {
-      title: 'Company',
-      links: [
-        { name: 'About Us', href: '#about' },
-        { name: 'Careers', href: '#' },
-        { name: 'Our Story', href: '#' },
-        { name: 'Press', href: '#' },
-      ]
-    },
-    {
-      title: 'Help',
-      links: [
-        { name: 'FAQ', href: '#' },
-        { name: 'Shipping', href: '#' },
-        { name: 'Returns', href: '#' },
-        { name: 'Contact Us', href: '#contact' },
-      ]
-    },
-  ];
+  // const footerLinks = [
+  //   {
+  //     title: 'Shop',
+  //     links: [
+  //       { name: 'Casual Shoes', href: '#' },
+  //       { name: 'Trainers', href: '#' },
+  //       { name: 'Limited Editions', href: '#' },
+  //       { name: 'Sale', href: '#' },
+  //     ]
+  //   },
+  //   {
+  //     title: 'Company',
+  //     links: [
+  //       { name: 'About Us', href: '#about' },
+  //       { name: 'Careers', href: '#' },
+  //       { name: 'Our Story', href: '#' },
+  //       { name: 'Press', href: '#' },
+  //     ]
+  //   },
+  //   {
+  //     title: 'Help',
+  //     links: [
+  //       { name: 'FAQ', href: '#' },
+  //       { name: 'Shipping', href: '#' },
+  //       { name: 'Returns', href: '#' },
+  //       { name: 'Contact Us', href: '#contact' },
+  //     ]
+  //   },
+  // ];
 
   return (
-    <footer id="contact" className="bg-white pt-16 pb-8">
+    <footer id="contact" className="bg-gray-600 pt-16 pb-8">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           {/* Brand & Contact Info */}
           <div className="lg:col-span-2">
             <a href="#" className="inline-flex items-center gap-2 mb-6">
               <icons.Footprints className="h-8 w-8 text-primary-600" />
-              <span className="text-xl font-bold text-gray-900">TRACER</span>
+              <span className="text-xl font-bold text-white">TRACER</span>
             </a>
-            <p className="text-gray-600 mb-6">
+            <p className="text-white mb-6">
               Redefining the future of footwear with premium designs and unmatched comfort.
             </p>
-            <ul className="space-y-4">
+            {/* <ul className="space-y-4">
               {contactInfo.map((item, index) => (
                 <motion.li 
                   key={index}
@@ -82,20 +82,21 @@ export const Footer: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                 >
-                  <a href={item.href} className="flex items-center gap-3 text-gray-600 hover:text-primary-600">
+                  <a href={item.href} className="flex items-center gap-3 text-white hover:text-primary-200">
                     {item.icon}
                     <span>{item.text}</span>
                   </a>
                 </motion.li>
               ))}
-            </ul>
+            </ul> */}
           </div>
           
           {/* Footer Links */}
-          {footerLinks.map((group, groupIndex) => (
-            <div key={group.title}>
-              <h4 className="text-gray-900 font-semibold mb-4">{group.title}</h4>
-              <ul className="space-y-2">
+          {/* {footerLinks.map((group, groupIndex) => ( */}
+            {/* <div key={group.title}> */}
+            <div>
+              {/* <h4 className="text-white font-semibold mb-4">{group.title}</h4> */}
+              {/* <ul className="space-y-2">
                 {group.links.map((link, linkIndex) => (
                   <motion.li 
                     key={link.name}
@@ -106,21 +107,37 @@ export const Footer: React.FC = () => {
                   >
                     <a 
                       href={link.href} 
-                      className="text-gray-600 hover:text-primary-600 transition-colors"
+                      className="text-white hover:text-primary-200 transition-colors"
                     >
                       {link.name}
                     </a>
                   </motion.li>
                 ))}
+              </ul> */}
+              <ul className="space-y-4">
+                {contactInfo.map((item, index) => (
+                  <motion.li 
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                  >
+                    <a href={item.href} className="flex items-center gap-3 text-white hover:text-primary-200">
+                      {item.icon}
+                      <span>{item.text}</span>
+                    </a>
+                  </motion.li>
+                ))}
               </ul>
             </div>
-          ))}
+          {/* ))} */}
         </div>
         
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-600 text-sm">
+            <p className="text-white text-sm">
               © {currentYear} Tracer Shoes. All rights reserved.
             </p>
             
@@ -129,7 +146,7 @@ export const Footer: React.FC = () => {
                 <motion.a
                   key={link.label}
                   href={link.href}
-                  className="text-gray-500 hover:text-primary-600 transition-colors"
+                  className="text-white hover:text-primary-600 transition-colors"
                   aria-label={link.label}
                   whileHover={{ scale: 1.1, y: -2 }}
                   initial={{ opacity: 0, y: 10 }}
