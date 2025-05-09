@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Mail, User } from 'lucide-react';
+import { CheckCircle2, Mail, User, Phone } from 'lucide-react';
 
 // InputField component lifted out of the parent component
 const InputField: React.FC<{
@@ -51,12 +51,12 @@ export const Subscription: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    // phone: ''
+    phone: ''
   });
   const [errors, setErrors] = useState({
     name: '',
     email: '',
-    // phone: ''
+    phone: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -80,7 +80,7 @@ export const Subscription: React.FC = () => {
     const newErrors = {
       name: '',
       email: '',
-      // phone: ''
+      phone: ''
     };
 
     if (!formData.name.trim()) {
@@ -97,14 +97,14 @@ export const Subscription: React.FC = () => {
       isValid = false;
     }
 
-    // const phoneRegex = /^\+?[\d\s-]{10,}$/;
-    // if (!formData.phone.trim()) {
-    //   newErrors.phone = 'Phone number is required';
-    //   isValid = false;
-    // } else if (!phoneRegex.test(formData.phone)) {
-    //   newErrors.phone = 'Please enter a valid phone number';
-    //   isValid = false;
-    // }
+    const phoneRegex = /^\+?[\d\s-]{10,}$/;
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+      isValid = false;
+    } else if (!phoneRegex.test(formData.phone)) {
+      newErrors.phone = 'Please enter a valid phone number';
+      isValid = false;
+    }
 
     setErrors(newErrors);
     return isValid;
@@ -115,7 +115,7 @@ export const Subscription: React.FC = () => {
     if (validateForm()) {
       setIsSubmitted(true);
       setTimeout(() => {
-        setFormData({ name: '', email: '' });
+        setFormData({ name: '', email: '', phone: '' });
       }, 100);
 
       setTimeout(() => {
@@ -172,7 +172,7 @@ export const Subscription: React.FC = () => {
                 type="email"
                 error={errors.email}
               />
-              {/* <InputField
+              <InputField
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
@@ -180,7 +180,7 @@ export const Subscription: React.FC = () => {
                 placeholder="Enter your phone number"
                 type="tel"
                 error={errors.phone}
-              /> */}
+              />
               <motion.button
                 type="submit"
                 whileHover={{ scale: 1.05 }}
