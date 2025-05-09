@@ -41,9 +41,9 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) =>
     const timer = setTimeout(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
-
+  
     return () => clearTimeout(timer);
-  });
+  }, [timeLeft]);
 
   const timeSegments = [
     { label: 'Days', value: timeLeft.days },
@@ -51,6 +51,24 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) =>
     { label: 'Minutes', value: timeLeft.minutes },
     { label: 'Seconds', value: timeLeft.seconds }
   ];
+
+  if (
+    timeLeft.days === 0 &&
+    timeLeft.hours === 0 &&
+    timeLeft.minutes === 0 &&
+    timeLeft.seconds === 0
+  ) {
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="text-white text-xl md:text-2xl font-semibold"
+      >
+        We’re Live!!! Check your email for early access.
+      </motion.div>
+    );
+  }
 
   return (
     <div className="flex flex-wrap justify-center gap-4 md:gap-6">

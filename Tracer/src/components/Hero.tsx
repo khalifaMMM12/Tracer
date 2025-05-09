@@ -4,9 +4,7 @@ import { CountdownTimer } from './CountdownTimer';
 import Banner from '../assets/Tracer-Banner.png';
 
 export const Hero: React.FC = () => {
-  // Launch date: 30 days from now
-  const launchDate = new Date();
-  launchDate.setDate(launchDate.getDate() + 9);
+  const launchDate = new Date('2025-05-15T00:00:00Z');
 
   return (
     <section 
