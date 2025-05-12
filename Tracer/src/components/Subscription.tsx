@@ -63,9 +63,15 @@ export const Subscription: React.FC = () => {
 
   const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    let newValue = value;
+
+    if (name === "phone") {
+      newValue = value.replace(/\D/g, "");
+    }
+
     setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: newValue
     }));
 
     if (errors[name as keyof typeof errors]) {
@@ -189,6 +195,8 @@ export const Subscription: React.FC = () => {
                 placeholder="Enter your phone number"
                 type="tel"
                 error={errors.phone}
+                // pattern="[0-9]*"
+                // inputMode="numeric"
               />
               <motion.button
                 type="submit"
