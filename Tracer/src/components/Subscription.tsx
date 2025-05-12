@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Mail, User, Phone } from 'lucide-react';
+import axios from 'axios';
 
 // InputField component lifted out of the parent component
 const InputField: React.FC<{
@@ -110,17 +111,25 @@ export const Subscription: React.FC = () => {
     return isValid;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      setIsSubmitted(true);
-      setTimeout(() => {
-        setFormData({ name: '', email: '', phone: '' });
-      }, 100);
+      try {
+        const response = await axios.post('http://localhost:5000/api/subscribe', formData);
 
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 3000);
+        if (response.status === 201) {
+          setIsSubmitted(true);
+          setTimeout(() => {
+            setFormData({ name: '', email: '', phone: '' });
+          }, 100);
+
+          setTimeout(() => {
+            setIsSubmitted(false);
+          }, 3000);
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+      }
     }
   };
 
