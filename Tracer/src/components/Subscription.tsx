@@ -161,10 +161,10 @@ export const Subscription: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-primary-800 p-6 rounded-lg shadow-lg inline-flex items-center"
+              className="bg-gradient-to-r from-accent-400 to-primary-600 p-6 rounded-xl shadow-2xl inline-flex items-center justify-center gap-3 mb-6 border-2 border-accent-500"
             >
-              <CheckCircle2 className="text-accent-400 mr-3" size={24} />
-              <span>Thank you! You're now subscribed to our newsletter.</span>
+              <CheckCircle2 className="text-white bg-accent-500 rounded-full p-1" size={32} />
+              <span className="text-white text-lg font-semibold tracking-wide">Thank you! You've joined the early access squad.</span>
             </motion.div>
           )}
 
