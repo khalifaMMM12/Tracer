@@ -61,7 +61,7 @@ app.post('/api/subscribe', async (req, res) => {
       res.status(response.status).json({ message: 'Failed to add contact' });
     }
   } catch (error) {
-    console.error('Error adding contact to Brevo:', error);
+    console.error('Error adding contact to Brevo:', error.response?.data || error.message || error);
     res.status(500).json({ message: 'Internal server error' });
   }
 });
