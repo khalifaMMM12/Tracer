@@ -121,7 +121,8 @@ export const Subscription: React.FC = () => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const response = await axios.post('http://localhost:5000/api/subscribe', formData);
+        // const response = await axios.post('http://localhost:5000/api/subscribe', formData);
+        const response = await axios.post('https://tracer-0yut.onrender.com/api/subscribe', formData);
 
         if (response.status === 201) {
           setIsSubmitted(true);

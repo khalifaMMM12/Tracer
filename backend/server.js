@@ -7,11 +7,15 @@ const cors = require('cors');
 dotenv.config();
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 
 app.use(bodyParser.json());
+
+app.get('/', (req, res) => {
+  res.send('Hello from Express backend!');
+});
 
 // Endpoint to handle form submissions
 app.post('/api/subscribe', async (req, res) => {
@@ -58,7 +62,6 @@ app.post('/api/subscribe', async (req, res) => {
     }
   } catch (error) {
     console.error('Error adding contact to Brevo:', error);
-    // console.log('Using Brevo API Key:', process.env.BREVO_API_KEY);
     res.status(500).json({ message: 'Internal server error' });
   }
 });
