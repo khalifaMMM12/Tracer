@@ -18,6 +18,21 @@ app.post('/api/subscribe', async (req, res) => {
   const { name, email, phone } = req.body;
 
   try {
+    // Check if email already exists
+    const checkResponse = await axios.get(
+      `https://api.brevo.com/v3/contacts/${email}`,
+      {
+        headers: {
+          'api-key': process.env.BREVO_API_KEY,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    if (checkResponse.status === 200) {
+      return res.status(400).json({ message: 'Email already exists' });
+    }
+
     const response = await axios.post(
       'https://api.brevo.com/v3/contacts',
       {

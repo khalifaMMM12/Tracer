@@ -134,7 +134,17 @@ export const Subscription: React.FC = () => {
           }, 3000);
         }
       } catch (error) {
-        console.error('Error submitting form:', error);
+        if (axios.isAxiosError(error) && error.response) {
+          const { message } = error.response.data;
+          if (message === 'Email already exists') {
+            setErrors((prev) => ({
+              ...prev,
+              email: 'This email is already registered.',
+            }));
+          } else {
+            console.error('Error submitting form:', error);
+          }
+        }
       }
     }
   };
