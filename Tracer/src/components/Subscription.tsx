@@ -132,7 +132,7 @@ export const Subscription: React.FC = () => {
 
           setTimeout(() => {
             setIsSubmitted(false);
-          }, 3000);
+          }, 4000);
         }
       } catch (error) {
         if (axios.isAxiosError(error) && error.response) {
