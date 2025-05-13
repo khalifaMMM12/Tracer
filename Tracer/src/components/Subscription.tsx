@@ -60,6 +60,7 @@ export const Subscription: React.FC = () => {
     phone: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -120,8 +121,8 @@ export const Subscription: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
+      setIsLoading(true);
       try {
-        // const response = await axios.post('http://localhost:5000/api/subscribe', formData);
         const response = await axios.post('https://tracer-0yut.onrender.com/api/subscribe', formData);
 
         if (response.status === 201) {
@@ -146,6 +147,8 @@ export const Subscription: React.FC = () => {
             console.error('Error submitting form:', error);
           }
         }
+      } finally {
+        setIsLoading(false);
       }
     }
   };
@@ -214,8 +217,13 @@ export const Subscription: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="btn btn-accent w-full"
+                disabled={isLoading}
               >
-                Get Early Access
+                {isLoading ? (
+                  <span className="loader inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                ) : (
+                  'Get Early Access'
+                )}
               </motion.button>  
             </div>
           </form>
