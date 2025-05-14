@@ -67,7 +67,7 @@ export const Subscription: React.FC = () => {
     let newValue = value;
 
     if (name === "phone") {
-      newValue = value.replace(/\D/g, "");
+      newValue = `+234${value.replace(/\D/g, "")}`;
     }
 
     setFormData((prev) => ({
