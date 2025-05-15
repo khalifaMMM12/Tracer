@@ -22,7 +22,6 @@ app.post('/api/subscribe', async (req, res) => {
   try {
     let emailExists = false;
 
-    // Try to get contact; 404 means contact doesn't exist
     try {
       await axios.get(`https://api.brevo.com/v3/contacts/${email}`, {
         headers: {
@@ -30,7 +29,7 @@ app.post('/api/subscribe', async (req, res) => {
           'Content-Type': 'application/json',
         },
       });
-      
+
       emailExists = true;
     } catch (err) {
       if (err.response?.status !== 404) {

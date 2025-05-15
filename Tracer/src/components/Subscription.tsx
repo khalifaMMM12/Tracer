@@ -143,6 +143,11 @@ export const Subscription: React.FC = () => {
               ...prev,
               email: 'This email is already registered.',
             }));
+          } else if (message === 'Phone number already exists') {
+            setErrors((prev) => ({
+              ...prev,
+              phone: 'This phone number is already registered.',
+            }));
           } else {
             console.error('Error submitting form:', error);
           }
