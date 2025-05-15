@@ -30,6 +30,7 @@ app.post('/api/subscribe', async (req, res) => {
           'Content-Type': 'application/json',
         },
       });
+      
       emailExists = true;
     } catch (err) {
       if (err.response?.status !== 404) {
@@ -40,6 +41,29 @@ app.post('/api/subscribe', async (req, res) => {
 
     if (emailExists) {
       return res.status(400).json({ message: 'Email already exists' });
+    }
+
+    let phoneExists = false;
+
+    try {
+      const phoneResponse = await axios.get(`https://api.brevo.com/v3/contacts?sms=${phone}`, {
+        headers: {
+          'api-key': process.env.BREVO_API_KEY,
+          'Content-Type': 'application/json',
+        },
+      });
+      if (phoneResponse.data?.contacts?.length > 0) {
+        phoneExists = true;
+      }
+    } catch (err) {
+      if (err.response?.status !== 404) {
+        console.error('Error checking existing phone number:', err.response?.data || err.message);
+        return res.status(500).json({ message: 'Error checking existing phone number' });
+      }
+    }
+
+    if (phoneExists) {
+      return res.status(400).json({ message: 'Phone number already exists' });
     }
 
     // Add new contact
