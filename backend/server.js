@@ -49,7 +49,7 @@ app.post('/api/subscribe', async (req, res) => {
         email,
         attributes: {
           NAME: name,
-          PHONE: phone,
+          SMS: phone,
         },
         listIds: [3],
       },
