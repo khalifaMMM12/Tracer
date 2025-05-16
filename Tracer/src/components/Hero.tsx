@@ -4,7 +4,7 @@ import { CountdownTimer } from './CountdownTimer';
 import Banner from '../assets/Tracer-Banner.png';
 
 export const Hero: React.FC = () => {
-  const launchDate = new Date('2025-05-15T00:00:00Z');
+  const launchDate = new Date('2025-05-21T00:00:00Z');
 
   return (
     <section 
@@ -64,7 +64,7 @@ export const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Be first inline when tracer lands on May 15th and score 20% off.
+            Be first inline when tracer lands on May 21st and score 20% off.
             <span className="block mt-2 text-accent-400 text-base">
               Offer valid from 7 days of launch. Join the early access squad.
             </span>

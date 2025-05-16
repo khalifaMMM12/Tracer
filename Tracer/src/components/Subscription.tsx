@@ -170,7 +170,7 @@ export const Subscription: React.FC = () => {
         >
           <h2 className="heading-lg mb-4">Stay Updated</h2>
           <p className="text-black mb-8">
-            Join the early access squad and be first in line when Tracer lands on May 15.
+            Join the early access squad and be first in line when Tracer lands on May 21st.
             <span className="block mt-2 text-accent-400 font-semibold">
               20% off valid for 7 days after launch
             </span>
