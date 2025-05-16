@@ -52,7 +52,9 @@ app.post('/api/subscribe', async (req, res) => {
         },
       });
       if (phoneResponse.data?.contacts?.length > 0) {
-        phoneExists = true;
+        phoneExists = phoneResponse.data.contacts.some(
+          (contact) => contact.attributes && contact.attributes.SMS === phone
+        );
       }
     } catch (err) {
       if (err.response?.status !== 404) {
